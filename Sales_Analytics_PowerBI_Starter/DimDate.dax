@@ -1,0 +1,11 @@
+DimDate =
+ADDCOLUMNS(
+    CALENDAR(MIN(FactSales[Order Date]), MAX(FactSales[Order Date])),
+    "Year", YEAR([Date]),
+    "Quarter", "Q" & FORMAT([Date], "Q"),
+    "Month Number", MONTH([Date]),
+    "Month", FORMAT([Date], "MMM"),
+    "Month Year", FORMAT([Date], "MMM yyyy"),
+    "Month Year Sort", YEAR([Date]) * 100 + MONTH([Date]),
+    "Weekday", FORMAT([Date], "ddd")
+)

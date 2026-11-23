@@ -1,0 +1,34 @@
+// Create these measures in the FactSales table
+Total Revenue = SUM(FactSales[Sales])
+
+Total Profit = SUM(FactSales[Profit])
+
+Profit Margin % = DIVIDE([Total Profit], [Total Revenue], 0)
+
+Total Orders = DISTINCTCOUNT(FactSales[Order ID])
+
+Total Customers = DISTINCTCOUNT(FactSales[Customer ID])
+
+Units Sold = SUM(FactSales[Quantity])
+
+Average Order Value = DIVIDE([Total Revenue], [Total Orders], 0)
+
+Revenue LY = CALCULATE([Total Revenue], SAMEPERIODLASTYEAR(DimDate[Date]))
+
+Revenue YoY Growth % = DIVIDE([Total Revenue] - [Revenue LY], [Revenue LY], 0)
+
+Profit LY = CALCULATE([Total Profit], SAMEPERIODLASTYEAR(DimDate[Date]))
+
+Profit YoY Growth % = DIVIDE([Total Profit] - [Profit LY], [Profit LY], 0)
+
+Revenue PM = CALCULATE([Total Revenue], DATEADD(DimDate[Date], -1, MONTH))
+
+Revenue MoM Growth % = DIVIDE([Total Revenue] - [Revenue PM], [Revenue PM], 0)
+
+Product Revenue Rank = RANKX(ALL(DimProduct[Product Name]), [Total Revenue], , DESC, Dense)
+
+Revenue % of Total = DIVIDE([Total Revenue], CALCULATE([Total Revenue], ALL(DimProduct)), 0)
+
+Discounted Revenue = CALCULATE([Total Revenue], FactSales[Discount] > 0)
+
+Loss-Making Sales = CALCULATE([Total Revenue], FactSales[Profit] < 0)

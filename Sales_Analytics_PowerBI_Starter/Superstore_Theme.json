@@ -1,0 +1,19 @@
+{
+  "name": "Superstore Executive",
+  "dataColors": [
+    "#2563EB",
+    "#14B8A6",
+    "#F59E0B",
+    "#8B5CF6",
+    "#EF4444",
+    "#64748B",
+    "#22C55E",
+    "#06B6D4"
+  ],
+  "background": "#F8FAFC",
+  "foreground": "#0F172A",
+  "tableAccent": "#2563EB",
+  "good": "#16A34A",
+  "neutral": "#F59E0B",
+  "bad": "#DC2626"
+}
